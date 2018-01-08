@@ -1,7 +1,7 @@
 from pyprint.NullPrinter import NullPrinter
 
 from coalib.misc import Constants
-from coalib.output.printers.LogPrinter import LogPrinte
+from coalib.output.printers.LogPrinter import LogPrinter
 
 from pkg_resources import VersionConflict
 

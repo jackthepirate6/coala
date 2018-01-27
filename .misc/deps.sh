@@ -3,7 +3,7 @@ set -x
 
 if [[ $CIRCLE_NODE_TOTAL != 2 ]]; then
   echo "ERROR: You must allocate 2 containers for the tests to run properly!"
-  exit 1
+  
 fi
 
 # Choose the python versions to install deps for

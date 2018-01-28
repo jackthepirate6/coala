@@ -595,10 +595,10 @@ def acquire_settings(log_printer, settings_names_dict, section):
     for setting_name, arr in sorted(settings_names_dict.items(),
                                     key=lambda x: (join_names(x[1][1:]), x[0])):
         value = require_setting(setting_name, arr, section)
-        while(value==None):
+        while(value == None):
             value = require_setting(setting_name, arr, section)           
-        if(value!=None):
-            while(str(value).strip()==''):
+        if(value! = None):
+            while(str(value).strip() == ''):
                 value = require_setting(setting_name, arr, section)
         result[setting_name] = value
 

@@ -598,7 +598,7 @@ def acquire_settings(log_printer, settings_names_dict, section):
         while(value==None):
             value = require_setting(setting_name, arr, section)           
         if(value!=None):
-            while(value.strip()=''):
+            while(value.strip()==''):
                 value = require_setting(setting_name, arr, section)
         result[setting_name] = value
 

@@ -397,7 +397,11 @@ def print_results_formatted(log_printer,
             log_exception(
                 'Unable to print the result with the given format string.',
                 exception)
-
+            
+        except ValueError as exception:
+            log_exception('There is a problem with the content of'
+                                      'the object you tried to assign the value'
+                                     'to.', exception)
 
 def print_bears_formatted(bears, format=None):
     format_str = format or ('name:{name}:can_detect:{can_detect}:'

@@ -139,6 +139,9 @@ class DocstyleDefinitionTest(unittest.TestCase):
         self.assertEqual(result.metadata, self.dummy_metadata)
 
     def test_get_available_definitions(self):
+        with self.assertRaises(FileNotFoundError):
+            next(DocstyleDefinition.load('PYTHON', 'INVALID'))
+            
         # Test if the basic supported docstyle-language pairs exist.
         expected = {('default', 'python'),
                     ('default', 'python3'),
@@ -159,8 +162,7 @@ class DocstyleDefinitionTest(unittest.TestCase):
 
         self.assertTrue(expected.issubset(real))
         
-        with self.assertRaises(FileNotFoundError):
-            next(DocstyleDefinition.load('PYTHON', 'INVALID'))
+        
 
     @patch('coalib.bearlib.languages.documentation.DocstyleDefinition.iglob')
     @patch('coalib.bearlib.languages.documentation.DocstyleDefinition'

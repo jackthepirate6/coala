@@ -158,6 +158,9 @@ class DocstyleDefinitionTest(unittest.TestCase):
         real = set(DocstyleDefinition.get_available_definitions())
 
         self.assertTrue(expected.issubset(real))
+        
+        with self.assertRaises(FileNotFoundError):
+            next(DocstyleDefinition.load('PYTHON', 'INVALID'))
 
     @patch('coalib.bearlib.languages.documentation.DocstyleDefinition.iglob')
     @patch('coalib.bearlib.languages.documentation.DocstyleDefinition'

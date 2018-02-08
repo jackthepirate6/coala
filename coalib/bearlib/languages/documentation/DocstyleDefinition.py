@@ -315,7 +315,10 @@ class DocstyleDefinition:
             coalang_dir or os.path.dirname(__file__), '*.coalang')
 
         for coalang_file in iglob(pattern):
-            docstyle = os.path.splitext(os.path.basename(coalang_file))[0]
+            try:
+                docstyle = os.path.splitext(os.path.basename(coalang_file))[0]
+            except FileNotFoundError:
+                raise FileNotFoundError('Docstyle definition not found')
             # Ignore files that are not lowercase, as coalang files have to be.
             if docstyle.lower() == docstyle:
                 parser = ConfParser(remove_empty_iter_elements=False)

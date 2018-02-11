@@ -164,6 +164,10 @@ To run coala without user interaction, run the `coala --non-interactive`,
         help='files that should be checked')
 
     inputs_group.add_argument(
+        '--charset', nargs='+', metavar='FILE',
+        help='character encoding to be used')
+
+    inputs_group.add_argument(
         '-i', '--ignore', type=PathArg, nargs='+', metavar='FILE',
         help='files that should be ignored')
 
